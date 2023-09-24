@@ -6,18 +6,21 @@ class MenuScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Container(
-        child: Drawer(
-          child: Column(
-            //mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              FloatingActionButton(
-                onPressed: () {},
-                child: const Text('Autos Fuera de Servicio'),
-              )
-            ],
-          ),
+      drawer: Drawer(
+        // Add a ListView to the drawer. This ensures the user can scroll
+        // through the options in the drawer if there isn't enough vertical
+        // space to fit everything.
+        child: ListView(
+          // Important: Remove any padding from the ListView.
+          padding: EdgeInsets.zero,
+          children: const [
+            DrawerHeader(
+              child: Text('Drawer Header'),
+            ),
+            ListTile(title: Text('Autos Fuera de Servicio')),
+            ListTile(title: Text('Business')),
+            ListTile(title: Text('School')),
+          ],
         ),
       ),
       appBar: AppBar(
